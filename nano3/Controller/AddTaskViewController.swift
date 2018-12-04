@@ -12,6 +12,11 @@
  class AddTaskViewController: UIViewController {
     
     //MARK: - Properties
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .default
+	}
+	
     var managedContext: NSManagedObjectContext!
     var task: Task?
     
@@ -23,7 +28,10 @@
     @IBOutlet weak var doneButton: UIButton!
     @IBOutlet weak var bottomConstraint: NSLayoutConstraint!
     
-    
+	override func loadView() {
+		super.loadView()
+		setNeedsStatusBarAppearanceUpdate()
+	}
     
     //MARK: viewDidLoad
     override func viewDidLoad() {

@@ -12,10 +12,19 @@ import CoreData
 class TasksTableViewController: UITableViewController {
     
     // MARK: - Properties
-    
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+			return .lightContent
+	}
+	
     var resultsController: NSFetchedResultsController<Task>!
     let coreDataStack = CoreDataStack()
-    
+	
+	override func viewWillAppear(_ animated: Bool) {
+		super.viewWillAppear(animated)
+		setNeedsStatusBarAppearanceUpdate()
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
@@ -168,4 +177,3 @@ extension TasksTableViewController: NSFetchedResultsControllerDelegate {
         }
     }
 }
-

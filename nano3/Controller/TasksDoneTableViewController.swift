@@ -12,10 +12,19 @@ import CoreData
 class TasksDoneTableViewController: UITableViewController {
     
     // MARK: - Properties
-    
+	
+	override var preferredStatusBarStyle: UIStatusBarStyle {
+		return .lightContent
+	}
+	
     var resultsController: NSFetchedResultsController<Task>!
     let coreDataStack = CoreDataStack()
-    
+	
+	override func loadView() {
+		super.loadView()
+		setNeedsStatusBarAppearanceUpdate()
+	}
+	
     override func viewDidLoad() {
         super.viewDidLoad()
         
